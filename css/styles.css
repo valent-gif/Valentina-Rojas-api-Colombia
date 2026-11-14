@@ -131,4 +131,26 @@ mensaje-carga {
     margin: 15px 0;
 }
 
+/* DISEÑO RESPONSIVE */
 
+@media (max-width: 900px){
+    #lista-departamentos,
+    #lista-platos {
+        grid-template-columns: repeat(2. 1fr);
+    }
+}
+
+@media (max-width: 600px){
+    #lista-departamentos,
+    #lista-platos {
+        grid-template-columns: 1fr;
+    }
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+main {
+    width: 94%;
+}
