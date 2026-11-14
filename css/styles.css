@@ -1,0 +1,50 @@
+/*CONFIGURACION GENERAL*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #263238;
+    line-height: 1.6;
+}
+
+/* ENCABEZADO */
+
+header {
+    background-color: #166534;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1{
+    margin-bottom: 10px;
+}
+
+/* NAVEGACION */
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    background-color: #15803d;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover{
+    background-color: #14532d;
+}
