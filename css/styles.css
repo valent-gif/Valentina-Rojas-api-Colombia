@@ -95,3 +95,40 @@ section h2 {
 .tarjeta p {
     margin-bottom: 8px;
 }
+
+/* IMAGENES DE LOS PLATOS */
+
+.tarjeta img {
+    width: 100%;
+    height: 200%;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* CONTEO Y MENSAJES */
+
+#conteo-regiones,
+#conteo-platos {
+    background-color: white;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+mensaje-carga {
+    text-align: center;
+    padding: 20px;
+    color: #166534;
+    font-weight: bold;
+}
+
+#mensaje-error {
+    text-align: center;
+    color: #dc2626;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+
