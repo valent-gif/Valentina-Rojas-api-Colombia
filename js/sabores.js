@@ -30,12 +30,23 @@ async function obtenerPlatos() {
         const ingredientes = document.createElement("p");
         ingredientes.textContent = "Ingredientes: " + plato.ingredients;
 
+
         const imagen = document.createElement("img");
-        imagen.src = plato.imageUrl;
+        if (plato.name.toLowerCase().includes("tamal tolimense")) {
+            imagen.src = "../img/tamal_tolimense.jpeg";
+        } 
+        else if (plato.name.toLowerCase().includes("arroz de lisa")) {
+            imagen.src = "../img/arroz_lisa.png";
+        } 
+        else {
+            imagen.src = plato.imageUrl;
+        }
+
         imagen.onerror = function () {
-        this.onerror = null;
-        this.src = "https://placehold.co/600x400?text=Imagen+no+disponible";
-    };
+            this.onerror = null;
+            this.src = "https://placehold.co/600x400?text=Imagen+no+disponible";
+        };
+
         imagen.alt = plato.name;
 
         const tarjeta = document.createElement("div");
