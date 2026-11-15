@@ -9,6 +9,8 @@ async function obtenerPlatos() {
         }
 
         const platos = await respuesta.json();
+        const conteo = document.getElementById("conteo-platos");
+        conteo.textContent = "Total de platos: " + platos.length;   
         console.log("Datos del primer plato:", platos[0]);
         console.log("Propiedades:", Object.keys(platos[0]));
         const lista = document.getElementById("lista-platos");
@@ -56,7 +58,3 @@ async function obtenerPlatos() {
 }
 
 obtenerPlatos();
-
-const conteo = document.getElementById("conteo-platos");
-
-conteo.textContent = "Total de platos: " + platos.length;
