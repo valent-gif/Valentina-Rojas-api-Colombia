@@ -66,7 +66,7 @@ section h2 {
 /* CONTENEDORES DE TARJETAS */
 
 #lista-departamentos,
-#lista.platos {
+#lista-platos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
@@ -100,9 +100,9 @@ section h2 {
 
 .tarjeta img {
     width: 100%;
-    height: auto;
-    max-height: 280px;
-    object-fit: contain;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
     display: block;
     border-radius: 8px;
     margin-top: 10px;

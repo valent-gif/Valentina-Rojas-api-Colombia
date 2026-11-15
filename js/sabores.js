@@ -70,6 +70,7 @@ async function obtenerPlatos() {
         console.log("Total de platos:", platos.length);
 
     } catch(error) {
+        
         console.log("Ocurrió un error:", error);
     }
 }
