@@ -9,10 +9,18 @@ async function obtenerPlatos() {
         }
 
         const platos = await respuesta.json();
-
+        console.log("Datos del primer plato:", platos[0]);
+        console.log("Propiedades:", Object.keys(platos[0]));
         const lista = document.getElementById("lista-platos");
 
+
         platos.slice(0, 20).forEach((plato) => {
+        const departamento = document.createElement("p");
+        departamento.textContent = "Departamento: " + (
+        plato.department ? plato.department.name : "No disponible"
+        );
+
+
         const mensajeCarga = document.getElementById("mensaje-carga");
         mensajeCarga.style.display = "none";
         const ingredientes = document.createElement("p");
@@ -33,7 +41,7 @@ async function obtenerPlatos() {
 
         tarjeta.appendChild(nombre);
         tarjeta.appendChild(descripcion);
-        
+        tarjeta.appendChild(departamento);
         lista.appendChild(tarjeta);
         tarjeta.appendChild(ingredientes);
         tarjeta.appendChild(imagen);    
