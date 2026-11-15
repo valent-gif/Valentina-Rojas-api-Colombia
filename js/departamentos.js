@@ -8,6 +8,8 @@ async function obtenerDepartamentos() {
         }
         const departamentos = await respuesta.json();
         const lista = document.getElementById("lista-departamentos");
+        const conteo = document.getElementById("conteo-regiones");
+        conteo.textContent = "Total de departamentos: " + departamentos.length;
         departamentos.forEach((departamento) => {
             const tarjeta = document.createElement("div");
             tarjeta.classList.add("tarjeta");
@@ -21,7 +23,21 @@ async function obtenerDepartamentos() {
             tarjeta.appendChild(nombre);
             tarjeta.appendChild(description);
 
+            const poblacion = document.createElement("p");
+            poblacion.textContent = "Población: " + departamento.population;
+
+
+            const superficie = document.createElement("p");
+            superficie.textContent = "Superficie: " + departamento.surface + " km²";
+
+            const municipios = document.createElement("p");
+            municipios.textContent = "Municipios: " + departamento.municipalities;
+
             lista.appendChild(tarjeta);
+            tarjeta.appendChild(description);
+            tarjeta.appendChild(poblacion);
+            tarjeta.appendChild(superficie);
+            tarjeta.appendChild(municipios);
 
         });
         console.log(departamentos);
