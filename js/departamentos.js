@@ -8,6 +8,8 @@ async function obtenerDepartamentos() {
         }
         const departamentos = await respuesta.json();
         const lista = document.getElementById("lista-departamentos");
+        const mensajeCarga = document.getElementById("mensaje-carga");
+        const mensajeError = document.getElementById("mensaje-error");
         const conteo = document.getElementById("conteo-regiones");
         conteo.textContent = "Total de departamentos: " + departamentos.length;
         departamentos.forEach((departamento) => {
@@ -38,13 +40,19 @@ async function obtenerDepartamentos() {
             tarjeta.appendChild(poblacion);
             tarjeta.appendChild(superficie);
             tarjeta.appendChild(municipios);
-
+            
         });
+        mensajeCarga.style.display = "none";
         console.log(departamentos);
         console.log("Total de departamentos; ", departamentos.length);
     } catch(error) {
-        console.log("Ocurrio un error: ", error);
-    }
+    mensajeCarga.style.display = "none";
+
+    mensajeError.textContent = "No se pudieron cargar los departamentos. Intenta nuevamente.";
+    mensajeError.style.display = "block";
+
+    console.log("Ocurrio un error: ", error);
+}
 }
 
 obtenerDepartamentos();
