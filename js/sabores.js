@@ -12,7 +12,16 @@ async function obtenerPlatos() {
 
         const lista = document.getElementById("lista-platos");
 
-        platos.forEach((plato) => {
+        platos.slice(0, 20).forEach((plato) => {
+        const mensajeCarga = document.getElementById("mensaje-carga");
+        mensajeCarga.style.display = "none";
+        const ingredientes = document.createElement("p");
+        ingredientes.textContent = "Ingredientes: " + plato.ingredients;
+
+        const imagen = document.createElement("img");
+        imagen.src = plato.imageUrl;
+        imagen.alt = plato.name;
+
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("tarjeta");
 
@@ -26,6 +35,8 @@ async function obtenerPlatos() {
         tarjeta.appendChild(descripcion);
         
         lista.appendChild(tarjeta);
+        tarjeta.appendChild(ingredientes);
+        tarjeta.appendChild(imagen);    
     });
 
         console.log(platos);
@@ -37,3 +48,7 @@ async function obtenerPlatos() {
 }
 
 obtenerPlatos();
+
+const conteo = document.getElementById("conteo-platos");
+
+conteo.textContent = "Total de platos: " + platos.length;
