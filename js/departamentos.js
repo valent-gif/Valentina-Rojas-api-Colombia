@@ -7,6 +7,23 @@ async function obtenerDepartamentos() {
             throw new Error("Error al consultar la API");
         }
         const departamentos = await respuesta.json();
+        const lista = document.getElementById("lista-departamentos");
+        departamentos.forEach((departamento) => {
+            const tarjeta = document.createElement("div");
+            tarjeta.classList.add("tarjeta");
+
+            const nombre = document.createElement("h3");
+            nombre.textContent = departamento.name;
+            
+            const description = document.createElement("p");
+            description.textContent =departamento.description;
+
+            tarjeta.appendChild(nombre);
+            tarjeta.appendChild(description);
+
+            lista.appendChild(tarjeta);
+
+        });
         console.log(departamentos);
         console.log("Total de departamentos; ", departamentos.length);
     } catch(error) {
