@@ -7,12 +7,28 @@ async function obtenerDepartamentos() {
             throw new Error("Error al consultar la API");
         }
         const departamentos = await respuesta.json();
+        const respuestaRegiones = await fetch("https://api-colombia.com/api/v1/Region");
+        if (!respuestaRegiones.ok) {
+            throw new Error("Error al consultar las regiones");
+        }
+        
+        const regiones = await respuestaRegiones.json();
+        console.log("Regiones:", regiones);
+
         const lista = document.getElementById("lista-departamentos");
         const mensajeCarga = document.getElementById("mensaje-carga");
         const mensajeError = document.getElementById("mensaje-error");
         const conteo = document.getElementById("conteo-regiones");
         conteo.textContent = "Total de departamentos: " + departamentos.length;
         departamentos.forEach((departamento) => {
+            const regionDepartamento = regiones.find((region) => {
+                return region.id === departamento.regionId;
+            });
+
+            const region = document.createElement("p");
+            region.textContent = "Región: " + (
+                regionDepartamento ? regionDepartamento.name : "No disponible"
+            );
             const tarjeta = document.createElement("div");
             tarjeta.classList.add("tarjeta");
 
@@ -40,6 +56,7 @@ async function obtenerDepartamentos() {
             tarjeta.appendChild(poblacion);
             tarjeta.appendChild(superficie);
             tarjeta.appendChild(municipios);
+            tarjeta.appendChild(region);
             
         });
         mensajeCarga.style.display = "none";
