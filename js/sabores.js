@@ -12,8 +12,21 @@ async function obtenerPlatos() {
 
         const lista = document.getElementById("lista-platos");
 
+        platos.forEach((plato) => {
+        const tarjeta = document.createElement("div");
+        tarjeta.classList.add("tarjeta");
 
+        const nombre = document.createElement("h3");
+        nombre.textContent = plato.name;
 
+        const descripcion = document.createElement("p");
+        descripcion.textContent = plato.description;
+
+        tarjeta.appendChild(nombre);
+        tarjeta.appendChild(descripcion);
+        
+        lista.appendChild(tarjeta);
+    });
 
         console.log(platos);
         console.log("Total de platos:", platos.length);
