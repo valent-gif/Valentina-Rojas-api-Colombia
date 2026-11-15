@@ -32,6 +32,10 @@ async function obtenerPlatos() {
 
         const imagen = document.createElement("img");
         imagen.src = plato.imageUrl;
+        imagen.onerror = function () {
+        this.onerror = null;
+        this.src = "https://placehold.co/600x400?text=Imagen+no+disponible";
+    };
         imagen.alt = plato.name;
 
         const tarjeta = document.createElement("div");
