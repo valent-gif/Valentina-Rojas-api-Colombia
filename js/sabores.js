@@ -1,6 +1,8 @@
 const url = "https://api-colombia.com/api/v1/TypicalDish";
 
 async function obtenerPlatos() {
+    const mensajeCarga = document.getElementById("mensaje-carga");
+    const mensajeError = document.getElementById("mensaje-error");
     try {
         const respuesta = await fetch(url);
 
