@@ -32,11 +32,18 @@ async function obtenerPlatos() {
 
 
         const imagen = document.createElement("img");
+
         if (plato.name.toLowerCase().includes("tamal tolimense")) {
             imagen.src = "../img/tamal_tolimense.jpeg";
         } 
         else if (plato.name.toLowerCase().includes("arroz de lisa")) {
             imagen.src = "../img/arroz_lisa.png";
+        } 
+        else if (plato.name.toLowerCase().includes("sancocho antioqueño")) {
+            imagen.src = plato.imageUrl;
+            imagen.style.objectFit = "cover";
+            imagen.style.height = "250px";
+            imagen.style.width = "100%";
         } 
         else {
             imagen.src = plato.imageUrl;
@@ -48,6 +55,8 @@ async function obtenerPlatos() {
         };
 
         imagen.alt = plato.name;
+
+
 
         const tarjeta = document.createElement("div");
         tarjeta.classList.add("tarjeta");
